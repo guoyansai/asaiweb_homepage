@@ -1,8 +1,9 @@
-document.write('<style>/**阿赛万年历的CSS FF8800|FFFFFE---0**/#AsaiTime,#asaitiao,#asairltxq{font-size:16px;}#AsaiTime,#asaitiao{display:block;text-align:center;width:50%;line-height:180%;float:left;}#AsaiTime{cursor:pointer;}#asaitiao{}.asaitiaox{padding:0px 3px;cursor:pointer;background-color:#FF8800;color:#FFFFFE;}#asairltxq{border-left:1px solid #FF8800;border-top:6px solid #FF8800;}#asairltxq td{text-align:center;line-height:28px;border-right:1px solid #FF8800;border-bottom:1px solid #FF8800;}#asairltxq .asairltxqt td{font-size:large;line-height:36px;color:#FF8800;font-weight:bold;}.asairltxqr,.asairltxql,.asairltxqz{cursor:pointer;position:relative}.asairltxqc{}.asairldt{font-size:large;}.asairldj{font-size:larger;background-color:#FF8800;color:#FFFFFE;}.asairldc{font-size:small;}.asairltxqr:hover .asairldt,.asairltxql:hover .asairldt,.asairltxqz:hover .asairldt{background-color:#FF8800;color:#FFFFFE;}.asairlds{display:none;width:96%;opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;background-color:#FFFFFE;border:1px solid #FF8800;position:absolute;top:22px;left:2%;margin-left:-1px;z-index:999;}.asairltxqr:hover .asairlds,.asairltxql:hover .asairlds,.asairltxqz:hover .asairlds{display:block;}.asairlonk{font-size:small;}.asairlonc{}.asairlonc span{color:#FF8800;}.asairlont{background-color:#FF8800;color:#FFFFFE;}@media screen and (max-width:666px) {#AsaiTime,#asaitiao{width:100%;}}/**阿赛万年历的CSS ---1**/</style>');
+
+document.write('<style>/**阿赛万年历的CSS FF8800|FFFFFE---0**/#AsaiTime,#asaitiao,#asairltxq{font-size:1rem;}#AsaiTime,#asaitiao{display:block;text-align:center;width:50%;line-height:180%;float:left;}#AsaiTime{cursor:pointer;}#asaitiao{}.asaitiaox{padding:0px 3px;cursor:pointer;background-color:#FF8800;color:#FFFFFE;}#asairltxq{border-left:1px solid #FF8800;border-top:6px solid #FF8800;}#asairltxq td{text-align:center;line-height:28px;border-right:1px solid #FF8800;border-bottom:1px solid #FF8800;}#asairltxq .asairltxqt td{font-size:large;line-height:36px;color:#FF8800;font-weight:bold;}.asairltxqr,.asairltxql,.asairltxqz{cursor:pointer;position:relative}.asairltxqc{}.asairldt{font-size:large;}.asairldj{font-size:larger;background-color:#FF8800;color:#FFFFFE;}.asairldc{font-size:small;}.asairltxqr:hover .asairldt,.asairltxql:hover .asairldt,.asairltxqz:hover .asairldt{background-color:#FF8800;color:#FFFFFE;}.asairlds{display:none;width:96%;opacity:0.8;filter:alpha(opacity=80);-moz-opacity:0.8;-khtml-opacity:0.8;background-color:#FFFFFE;border:1px solid #FF8800;position:absolute;top:22px;left:2%;margin-left:-1px;z-index:999;}.asairltxqr:hover .asairlds,.asairltxql:hover .asairlds,.asairltxqz:hover .asairlds{display:block;}.asairlonk{font-size:small;}.asairlonc{}.asairlonc span{color:#FF8800;}.asairlont{background-color:#FF8800;color:#FFFFFE;}@media screen and (max-width:666px) {#AsaiTime,#asaitiao{width:100%;}}/**阿赛万年历的CSS ---1**/</style>');
 // 阿赛万年历的JS ---0
 // -1: disable; 0: all; N: show level N asairlbug msg.
 
-var asairlbug = 0;
+var asairlbug = -1;
 //年份范围
 var yearA = 1900;
 var yearB = 2100;
@@ -39,17 +40,17 @@ var asairlA_nl = [
 	0x0e968, 0x0d520, 0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252,
 	0x0d520];
 
-var asairlA_ty = new Array(31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31);
-var asairlA_tg = new Array("甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸");
-var asairlA_dz = new Array("子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥");
-var asairlA_sx = new Array("鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪");
-var asairlA_jq = new Array("小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至");
-var asairlA_rn = new Array(0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149, 195551, 218072, 240693, 263343, 285989, 308563, 331033, 353350, 375494, 397447, 419210, 440795, 462224, 483532, 504758);
-var asairlA_sz = new Array('日', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十');
-var asairlA_ss = new Array('初', '十', '廿', '卅', '　');
+var asairlA_ty = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var asairlA_tg = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+var asairlA_dz = ["子", "丑", "寅", "卯", "辰", "巳", "午", "未", "申", "酉", "戌", "亥"];
+var asairlA_sx = ["鼠", "牛", "虎", "兔", "龙", "蛇", "马", "羊", "猴", "鸡", "狗", "猪"];
+var asairlA_jq = ["小寒", "大寒", "立春", "雨水", "惊蛰", "春分", "清明", "谷雨", "立夏", "小满", "芒种", "夏至", "小暑", "大暑", "立秋", "处暑", "白露", "秋分", "寒露", "霜降", "立冬", "小雪", "大雪", "冬至"];
+var asairlA_rn = [0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149, 195551, 218072, 240693, 263343, 285989, 308563, 331033, 353350, 375494, 397447, 419210, 440795, 462224, 483532, 504758];
+var asairlA_sz = ['日', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
+var asairlA_ss = ['初', '十', '廿', '卅', '　'];
 
 //国历节日*表示节假日
-var asairlA_jj = new Array(
+var asairlA_jj = [
 	"0101*元旦节",
 	"0202 世界湿地日",
 	"0210 国际气象节",
@@ -148,10 +149,10 @@ var asairlA_jj = new Array(
 	"1225 圣诞节",
 	"1226 毛泽东诞辰纪念日",
 	"1229 国际生物多样性日"
-);
+];
 
 //农历节日*表示节假日
-var asairlA_jn = new Array(
+var asairlA_jn = [
 	"0101*春节",
 	"0102 初二",
 	"0103 初三",
@@ -173,11 +174,11 @@ var asairlA_jn = new Array(
 	"1216 郭成刚农历生日1953",
 	"1223 小年",
 	"0100*除夕"
-);
+];
 
 //按周计算 月周日：某月的第几个星期几,第3位为5表示最后一星期
 
-var asairlA_jx = new Array(
+var asairlA_jx = [
 	"0110 黑人日",
 	"0140 世界麻风日",
 	"0440 世界儿童日",
@@ -195,7 +196,7 @@ var asairlA_jx = new Array(
 	"1144 感恩节",
 	"1145 黑色星期五",
 	"1220 国际儿童电视广播日"
-);
+];
 
 function log(level, msg) {
 	if (asairlbug == 0 || asairlbug == level)
@@ -227,8 +228,8 @@ function Lunar(objDate) {
 	var m = ""; // msg for log
 	var i, leap = 0, temp = 0;
 	var baseDate = new Date(yearA, 0, 31);
-	var offset = (objDate - baseDate) / 86400000;
-	//   var offset=Math.floor((objDate.getTime() + 2206425600000)/86400000);
+	// var offset = (objDate - baseDate) / 86400000;
+	var offset = Math.floor((objDate.getTime() + 2206425600000) / 86400000);
 	m += "objDate=" + objDate.getTime() + ", new Date(" + yearA + ",0,31)=" + baseDate.getTime();
 	m += "offset=" + offset;
 
@@ -340,7 +341,7 @@ function calendar(y, m) {
 			lDObj = new Lunar(sDObj);
 			lY = lDObj.year;
 			lM = lDObj.month;
-			lD = lDObj.day;
+			lD = Math.round(lDObj.day);
 			lL = lDObj.isLeap;
 			lX = lL ? leapDays(lY) : monthDays(lY, lM);
 
@@ -369,17 +370,17 @@ function calendar(y, m) {
 	log(1, "begin loop for(i in asairlA_jj)");
 	for (i in asairlA_jj)
 		if (asairlA_jj[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
-			if (Number(RegExp.$1) == (m + 1)) {
-				this[Number(RegExp.$2) - 1].solarFestival += RegExp.$4 + ' ';
-				if (RegExp.$3 == '*') this[Number(RegExp.$2) - 1].color = '#FF9900';
+			if (Math.round(RegExp.$1) == (m + 1)) {
+				this[Math.round(RegExp.$2) - 1].solarFestival += RegExp.$4 + ' ';
+				if (RegExp.$3 == '*') this[Math.round(RegExp.$2) - 1].color = '#FF9900';
 			}
 
 	log(1, "begin loop for(i in asairlA_jx)");
 	for (i in asairlA_jx)
 		if (asairlA_jx[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
-			if (Number(RegExp.$1) == (m + 1)) {
-				tmp1 = Number(RegExp.$2);
-				tmp2 = Number(RegExp.$3);
+			if (Math.round(RegExp.$1) == (m + 1)) {
+				tmp1 = Math.round(RegExp.$2);
+				tmp2 = Math.round(RegExp.$3);
 				this[((this.firstWeek > tmp2) ? 7 : 0) + 7 * (tmp1 - 1) + tmp2 - this.firstWeek].solarFestival += RegExp.$5 + ' ';
 			}
 
@@ -387,10 +388,10 @@ function calendar(y, m) {
 	for (i in asairlA_jn)
 		if (asairlA_jn[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
 			log(1, asairlA_jn[i]);
-			tmp1 = Number(RegExp.$1) - firstLM;
+			tmp1 = Math.round(RegExp.$1) - firstLM;
 			if (tmp1 == -11) tmp1 = 1;
 			if (tmp1 >= 0 && tmp1 < n) {
-				tmp2 = lDPOS[tmp1] + Number(RegExp.$2) - 1;
+				tmp2 = Math.round(lDPOS[tmp1] + Math.round(RegExp.$2) - 1);
 				if (tmp2 >= 0 && tmp2 < this.length) {
 					log(1, "tmp2 >= 0 && tmp2(" + tmp2 + ")<this.length(" + this.length + ")");
 					log(1, RegExp.$4);
@@ -590,10 +591,10 @@ document.write('</select><span class="asaitiaox" onClick="pushBtm(\'MD\')">&gt;<
 
 document.write('<table width="100%" border="0" cellspacing="0" cellpadding="0" id="asairltxq"><tr class="asairltxqt"><td width="15%">日</td><td width="14%">一</td><td width="14%">二</td><td width="14%">三</td><td width="14%">四</td><td width="14%">五</td><td width="15%">六</td></tr>');
 for (var asaixqj = 0; asaixqj < 42; asaixqj++) {
-	if (asaixqj == 0) { document.write('<tr class="asairltxqc"><td class="asairltxqr" onMouseOver="mOvr(' + asaixqj + ')"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
-	else if (asaixqj == 41) { document.write('<td class="asairltxql" onMouseOver="mOvr(' + asaixqj + ')"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td></tr>'); }
-	else if (asaixqj % 7 == 0) { document.write('</tr><tr class="asairltxqc"><td class="asairltxqz" onMouseOver="mOvr(' + asaixqj + ')"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
-	else { document.write('<td class="asairltxqz" onMouseOver="mOvr(' + asaixqj + ')"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
+	if (asaixqj == 0) { document.write('<tr class="asairltxqc"><td class="asairltxqr"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
+	else if (asaixqj == 41) { document.write('<td class="asairltxql"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td></tr>'); }
+	else if (asaixqj % 7 == 0) { document.write('</tr><tr class="asairltxqc"><td class="asairltxqz"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
+	else { document.write('<td class="asairltxqz"><div class="asairldt" id="sd' + asaixqj + '"></div><div class="asairldc" id="ld' + asaixqj + '"></div><div class="asairlds" id="xd' + asaixqj + '"></div></td>'); }
 }
 document.write('</table>');
 initial();
