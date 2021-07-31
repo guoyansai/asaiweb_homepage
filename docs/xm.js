@@ -27,7 +27,7 @@ var xmData = [
     tit: "汽车交易服务平台",
     des: "南京二手车网、新车网、租车网：负责旧站改版，并完成新车网、租车网及其他特需项目的前端设计、后端数据库与程序开发。",
     key: "js,css,html,asp,mssql,技术架构,网站重构,技术管理",
-    com: "南京搜车网络技术有限公司",
+    com: "南京搜车科技股份有限公司",
     wok: "技术主管：旧版二手车网站的重构与优化，新车网、租车网的设计开发到上线。",
     oth: "2008.2-2009.1",
   },
@@ -80,7 +80,7 @@ while (xmi < xmDataLen) {
   xmKeyi = 0;
   xmDom += "<li>【" + xmItem.tit + "】：" + xmItem.des + "<u>" + xmItem.wok + "</u>[" + xmItem.com + "](" + xmItem.oth + ")";
   while (xmKeyi < xmKeysLen) {
-    xmDom += "<i>" + xmKeys[xmKeyi] + "</i>";
+    xmDom += "<i>" + xmKeys[xmKeyi] + "/</i>";
     xmKeyi++;
   }
   xmDom += "</li>";
