@@ -80,7 +80,7 @@ while (xmi < xmDataLen) {
   xmKeyi = 0;
   xmDom += "<li>【" + xmItem.tit + "】：" + xmItem.des + "<u>" + xmItem.wok + "</u>[" + xmItem.com + "](" + xmItem.oth + ")";
   while (xmKeyi < xmKeysLen) {
-    xmDom += "<i>" + xmKeys[xmKeyi] + "/</i>";
+    xmDom += "<i>" + xmKeys[xmKeyi] + "</i>";
     xmKeyi++;
   }
   xmDom += "</li>";
