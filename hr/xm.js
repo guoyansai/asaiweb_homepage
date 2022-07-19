@@ -1,7 +1,7 @@
 var xmData = [
   {
-    tit: "华为云服务线多款产品前端开发",
-    des: "华为主题设计工具：基于electron/vue/nodejs架设开发环境，通过js/sass/svg/canvas/i18n等技术开发win/Mac全端全球适配的IDE；华为创意广告设计平台：熟练运用vue/es6/axios/webpack等技术部署开发与发布环境，制作在线版图片、H5页面编辑器；华为PPS广告投放系统：比肩GoogleAds的广告投放、创意设计系统、商品酒店关键词投放等。",
+    tit: "工具及平台前端开发",
+    des: "主题开发工具：基于electron/vue/nodejs架设开发环境，通过js/sass/svg/canvas/i18n等技术开发win/Mac全端全球适配的IDE；创意设计平台：熟练运用vue/es6/axios/webpack等技术部署开发与发布环境，制作在线版图片、H5页面编辑器；广告投放系统：基于Angular支持海内外广告投放；广告服务平台：基于Vue全新设计架构开发的广告平台。",
     key: "js,css,html,nodejs,vue,electron,sass,less,svg,canvas,i18n,webpack,es6,elementUI,axios,angular,ts,讲师,培训,导师,架构师,项目管理,命题,面试",
     com: "软通动力信息技术（集团）股份有限公司",
     wok: "技术架构：前端项目技术选型、架构设计、开发启动与升级维护等；项目管理：负责前端团队的开发总调；新员工培训导师：每月一次的新员工入职技术培训；前端技能鉴定组长：每年两次的前端技能鉴定组组长、命题人；另有前端面试、代码review、安全检视等。",
