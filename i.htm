@@ -9,8 +9,8 @@
 <meta name="description" content="阿赛常用网站导航页">
 <meta name="copyright" content="阿赛工作室,郭言赛,asai.cc">
 <base target="_blank" />
-<style type="text/css">
-	/*4ab665 003300 FF8800 DD0000*/
+<style type="text/css">	
+	/*4ab665 003300 409eff DD0000*/
 	body {
 		padding: 0px;
 		margin: 0px;
@@ -59,7 +59,7 @@
 
 	.red a,
 	a.ae {
-		color: #FF8800;
+		color: #409eff;
 	}
 
 	h1,
@@ -139,7 +139,7 @@
 	}
 
 	.searchCon form {
-		border: #FF8800 solid 1px;
+		border: #409eff solid 1px;
 		height: 32px;
 		padding-left: 5px;
 		/*position:relative;*/
@@ -166,7 +166,7 @@
 	.searchBUtton {
 		border: none;
 		color: #FFF;
-		background-color: #FF8800;
+		background-color: #409eff;
 		width: 90px;
 		height: 32px;
 		float: right;
@@ -226,17 +226,36 @@
 						document.write(ggSay); // say show
 					</script>
 				</h1>
-				<div class="asaiskdiv">
+				<script>
+
+				document.write(`<div class="asaiskdiv">
 					<div class="searchDivHome">
 						<div class="searchCon">
 							<form name=f action=https://www.baidu.com/s><input type=text name=wd id=kw
 									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2"><input
 									type=hidden name=tn value="guoyansai_pg"><input type=hidden name=bar value="">
-								<input type="submit" value="全网搜索" class="searchBUtton" />
+								<input type="submit" value="百度搜索" class="searchBUtton" />
 							</form>
 						</div>
 					</div>
-				</div>
+				</div>`)
+
+				document.write(`<div class="asaiskdiv">
+					<div class="searchDivHome">
+						<div class="searchCon">
+							<form name=f action=https://cn.bing.com/search><input type=text name=q id=q
+									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2">
+								<input type="submit" value="微软搜索" class="searchBUtton" />
+							</form>
+						</div>
+					</div>
+				</div>`)
+
+			</script>
+			<!-- <div class="asaiskdiv">
+			<input type="radio" id="contactChoice2" name="sty" value="baidu" /><label for="contactChoice2">电话</label>
+			<input type="radio" id="contactChoice3" name="sty" value="bing" /><label for="contactChoice3">邮件</label>
+			</div> -->
 				<table width="666" border="0" cellspacing="8" cellpadding="8" align="center"
 					style="clear:both;margin:0px auto 0px auto;">
 					<tr>
