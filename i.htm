@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html manifest="i.appcache">
 <html lang="zh-CN">
 <meta charset="utf-8" /><link rel="shortcut icon" type="image/icon" href="http://x.909.pub/js/logo/favicon.ico" />
@@ -16,10 +16,6 @@
 		margin: 0px;
 		font-size: 1rem;
 		color: #003300;
-	}
-
-	#tbody {
-		background-image: url(i.png);
 	}
 
 	* {
@@ -202,7 +198,7 @@
 </head>
 
 <body>
-	<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0" id="tbody">
+	<table width="100%" height="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td align="center">
 				<div class="asaitop">
@@ -220,42 +216,28 @@
 						<a href="http://suan.909.pub/">计算题</a>
 					</div>
 				</div>
-				<h1>
-					<script src="js/gg-say.js"></script>
-					<script>
-						document.write(ggSay); // say show
-					</script>
-				</h1>
-				<script>
-
-				document.write(`<div class="asaiskdiv">
+				<div class="asaiskdiv">
 					<div class="searchDivHome">
 						<div class="searchCon">
 							<form name=f action=https://www.baidu.com/s><input type=text name=wd id=kw
-									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2"><input
+									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2" oninput="q.value=wd.value"><input
 									type=hidden name=tn value="guoyansai_pg"><input type=hidden name=bar value="">
 								<input type="submit" value="百度搜索" class="searchBUtton" />
 							</form>
 						</div>
 					</div>
-				</div>`)
-
-				document.write(`<div class="asaiskdiv">
+				</div>
+				<div class="asaiskdiv">
 					<div class="searchDivHome">
 						<div class="searchCon">
 							<form name=f action=https://cn.bing.com/search><input type=text name=q id=q
-									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2">
+									disableautocomplete maxlength=100 class="searchInputBot" baiduSug="2" oninput="wd.value=q.value">
 								<input type="submit" value="微软搜索" class="searchBUtton" />
 							</form>
 						</div>
 					</div>
-				</div>`)
+				</div>
 
-			</script>
-			<!-- <div class="asaiskdiv">
-			<input type="radio" id="contactChoice2" name="sty" value="baidu" /><label for="contactChoice2">电话</label>
-			<input type="radio" id="contactChoice3" name="sty" value="bing" /><label for="contactChoice3">邮件</label>
-			</div> -->
 				<table width="666" border="0" cellspacing="8" cellpadding="8" align="center"
 					style="clear:both;margin:0px auto 0px auto;">
 					<tr>
@@ -298,6 +280,7 @@
 				<p align="center">
 					<iframe width="666" scrolling="no" height="96" frameborder="0" allowtransparency="true"
 						src="https://i.tianqi.com?c=code&id=48&icon=1&num=6&site=12"></iframe>
+				</p>
 
 				<table border="0" cellspacing="0" cellpadding="0" align="center"
 					style="clear:both;margin:0px auto 0px auto;width:99%;max-width:999px;min-width:666px;">
@@ -307,6 +290,14 @@
 						</td>
 					</tr>
 				</table>
+
+				<h1>
+					<script src="js/gg-say.js"></script>
+					<script>
+						document.write(ggSay); // say show
+					</script>
+				</h1>
+
 				<h2>
 					<script>
 						function eesdjs(eesdate, eesty) {
@@ -321,16 +312,6 @@
 						document.write("" + eesdjs('2044/07/18', 1) + "");
 					</script>
 				</h2>
-				<script type="text/javascript">
-					var str = location.href;
-					var reed = str.indexOf("?");
-					var key = str.substring(reed + 1);
-					if (reed != -1) { document.f.wd.value = key; }
-					var w = document.f.wd; function s(o) { if (w.value.length > 0) { var h = o.href; var q = encodeURIComponent(w.value); if (h.indexOf("q=") != -1) { o.href = h.replace(new RegExp("q=[^&$]*"), "q=" + q) } else { o.href += "?q=" + q } } }; (function () { if (new RegExp("q=([^&]+)").test(location.search)) { w.value = decodeURIComponent(RegExp.$1) } })();; window.onunload = function () { };
-					w.focus();
-
-					for (i = 0; i < 28; i++) { document.write("<br>"); }
-				</script>
 			</td>
 		</tr>
 		<tr>
@@ -351,7 +332,5 @@
 			obj[i].style.background = t;
 		}
 	</script>
-
 </body>
-
 </html>

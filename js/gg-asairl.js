@@ -145,479 +145,476 @@ var asairl = {
     "1220 国际儿童电视广播日",
   ],
 };
-fnasairl(asairl);
 
-function fnasairl(asairl) {
-  // 阿赛万年历的JS ---0
-  // -1: disable; 0: all; N: show level N asairlbug msg.
-  var asairlbug = -1;
-  //年份范围
-  var yearA = 1900;
-  var yearB = 2100;
-  var yearX = 200;
+// 阿赛万年历的JS ---0
+// -1: disable; 0: all; N: show level N asairlbug msg.
+var asairlbug = -1;
+//年份范围
+var yearA = 1900;
+var yearB = 2100;
+var yearX = 200;
 
-  var Today = new Date();
-  var tY = Today.getFullYear();
-  var tM = Today.getMonth();
-  var tD = Today.getDate();
-  var cld;
+var Today = new Date();
+var tY = Today.getFullYear();
+var tM = Today.getMonth();
+var tD = Today.getDate();
+var cld;
 
-  //农历数据信息
-  var asairlA_nl = [
-    0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0,
-    0x09ad0, 0x055d2, 0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540,
-    0x0d6a0, 0x0ada2, 0x095b0, 0x14977, 0x04970, 0x0a4b0, 0x0b4b5, 0x06a50,
-    0x06d40, 0x1ab54, 0x02b60, 0x09570, 0x052f2, 0x04970, 0x06566, 0x0d4a0,
-    0x0ea50, 0x06e95, 0x05ad0, 0x02b60, 0x186e3, 0x092e0, 0x1c8d7, 0x0c950,
-    0x0d4a0, 0x1d8a6, 0x0b550, 0x056a0, 0x1a5b4, 0x025d0, 0x092d0, 0x0d2b2,
-    0x0a950, 0x0b557, 0x06ca0, 0x0b550, 0x15355, 0x04da0, 0x0a5d0, 0x14573,
-    0x052d0, 0x0a9a8, 0x0e950, 0x06aa0, 0x0aea6, 0x0ab50, 0x04b60, 0x0aae4,
-    0x0a570, 0x05260, 0x0f263, 0x0d950, 0x05b57, 0x056a0, 0x096d0, 0x04dd5,
-    0x04ad0, 0x0a4d0, 0x0d4d4, 0x0d250, 0x0d558, 0x0b540, 0x0b5a0, 0x195a6,
-    0x095b0, 0x049b0, 0x0a974, 0x0a4b0, 0x0b27a, 0x06a50, 0x06d40, 0x0af46,
-    0x0ab60, 0x09570, 0x04af5, 0x04970, 0x064b0, 0x074a3, 0x0ea50, 0x06b58,
-    0x055c0, 0x0ab60, 0x096d5, 0x092e0, 0x0c960, 0x0d954, 0x0d4a0, 0x0da50,
-    0x07552, 0x056a0, 0x0abb7, 0x025d0, 0x092d0, 0x0cab5, 0x0a950, 0x0b4a0,
-    0x0baa4, 0x0ad50, 0x055d9, 0x04ba0, 0x0a5b0, 0x15176, 0x052b0, 0x0a930,
-    0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260,
-    0x0ea65, 0x0d530, 0x05aa0, 0x076a3, 0x096d0, 0x04bd7, 0x04ad0, 0x0a4d0,
-    0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, 0x0b5a0, 0x056d0, 0x055b2, 0x049b0,
-    0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0, 0x14b63, 0x09370,
-    0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,
-    0x0a2e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0,
-    0x0a6d0, 0x055d4, 0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50,
-    0x055a0, 0x0aba4, 0x0a5b0, 0x052b0, 0x0b273, 0x06930, 0x07337, 0x06aa0,
-    0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d160, 0x0e968, 0x0d520,
-    0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252,
-    0x0d520,
-  ];
+//农历数据信息
+var asairlA_nl = [
+  0x04bd8, 0x04ae0, 0x0a570, 0x054d5, 0x0d260, 0x0d950, 0x16554, 0x056a0,
+  0x09ad0, 0x055d2, 0x04ae0, 0x0a5b6, 0x0a4d0, 0x0d250, 0x1d255, 0x0b540,
+  0x0d6a0, 0x0ada2, 0x095b0, 0x14977, 0x04970, 0x0a4b0, 0x0b4b5, 0x06a50,
+  0x06d40, 0x1ab54, 0x02b60, 0x09570, 0x052f2, 0x04970, 0x06566, 0x0d4a0,
+  0x0ea50, 0x06e95, 0x05ad0, 0x02b60, 0x186e3, 0x092e0, 0x1c8d7, 0x0c950,
+  0x0d4a0, 0x1d8a6, 0x0b550, 0x056a0, 0x1a5b4, 0x025d0, 0x092d0, 0x0d2b2,
+  0x0a950, 0x0b557, 0x06ca0, 0x0b550, 0x15355, 0x04da0, 0x0a5d0, 0x14573,
+  0x052d0, 0x0a9a8, 0x0e950, 0x06aa0, 0x0aea6, 0x0ab50, 0x04b60, 0x0aae4,
+  0x0a570, 0x05260, 0x0f263, 0x0d950, 0x05b57, 0x056a0, 0x096d0, 0x04dd5,
+  0x04ad0, 0x0a4d0, 0x0d4d4, 0x0d250, 0x0d558, 0x0b540, 0x0b5a0, 0x195a6,
+  0x095b0, 0x049b0, 0x0a974, 0x0a4b0, 0x0b27a, 0x06a50, 0x06d40, 0x0af46,
+  0x0ab60, 0x09570, 0x04af5, 0x04970, 0x064b0, 0x074a3, 0x0ea50, 0x06b58,
+  0x055c0, 0x0ab60, 0x096d5, 0x092e0, 0x0c960, 0x0d954, 0x0d4a0, 0x0da50,
+  0x07552, 0x056a0, 0x0abb7, 0x025d0, 0x092d0, 0x0cab5, 0x0a950, 0x0b4a0,
+  0x0baa4, 0x0ad50, 0x055d9, 0x04ba0, 0x0a5b0, 0x15176, 0x052b0, 0x0a930,
+  0x07954, 0x06aa0, 0x0ad50, 0x05b52, 0x04b60, 0x0a6e6, 0x0a4e0, 0x0d260,
+  0x0ea65, 0x0d530, 0x05aa0, 0x076a3, 0x096d0, 0x04bd7, 0x04ad0, 0x0a4d0,
+  0x1d0b6, 0x0d250, 0x0d520, 0x0dd45, 0x0b5a0, 0x056d0, 0x055b2, 0x049b0,
+  0x0a577, 0x0a4b0, 0x0aa50, 0x1b255, 0x06d20, 0x0ada0, 0x14b63, 0x09370,
+  0x049f8, 0x04970, 0x064b0, 0x168a6, 0x0ea50, 0x06b20, 0x1a6c4, 0x0aae0,
+  0x0a2e0, 0x0d2e3, 0x0c960, 0x0d557, 0x0d4a0, 0x0da50, 0x05d55, 0x056a0,
+  0x0a6d0, 0x055d4, 0x052d0, 0x0a9b8, 0x0a950, 0x0b4a0, 0x0b6a6, 0x0ad50,
+  0x055a0, 0x0aba4, 0x0a5b0, 0x052b0, 0x0b273, 0x06930, 0x07337, 0x06aa0,
+  0x0ad50, 0x14b55, 0x04b60, 0x0a570, 0x054e4, 0x0d160, 0x0e968, 0x0d520,
+  0x0daa0, 0x16aa6, 0x056d0, 0x04ae0, 0x0a9d4, 0x0a2d0, 0x0d150, 0x0f252,
+  0x0d520,
+];
 
-  var asairlA_ty = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-  var asairlA_tg = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
-  var asairlA_dz = [
-    "子",
-    "丑",
-    "寅",
-    "卯",
-    "辰",
-    "巳",
-    "午",
-    "未",
-    "申",
-    "酉",
-    "戌",
-    "亥",
-  ];
-  var asairlA_sx = [
-    "鼠",
-    "牛",
-    "虎",
-    "兔",
-    "龙",
-    "蛇",
-    "马",
-    "羊",
-    "猴",
-    "鸡",
-    "狗",
-    "猪",
-  ];
-  var asairlA_jq = [
-    "小寒",
-    "大寒",
-    "立春",
-    "雨水",
-    "惊蛰",
-    "春分",
-    "清明",
-    "谷雨",
-    "立夏",
-    "小满",
-    "芒种",
-    "夏至",
-    "小暑",
-    "大暑",
-    "立秋",
-    "处暑",
-    "白露",
-    "秋分",
-    "寒露",
-    "霜降",
-    "立冬",
-    "小雪",
-    "大雪",
-    "冬至",
-  ];
-  var asairlA_rn = [
-    0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149, 195551,
-    218072, 240693, 263343, 285989, 308563, 331033, 353350, 375494, 397447,
-    419210, 440795, 462224, 483532, 504758,
-  ];
-  var asairlA_sz = [
-    "日",
-    "一",
-    "二",
-    "三",
-    "四",
-    "五",
-    "六",
-    "七",
-    "八",
-    "九",
-    "十",
-  ];
-  var asairlA_ss = ["初", "十", "廿", "卅", "　"];
+var asairlA_ty = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+var asairlA_tg = ["甲", "乙", "丙", "丁", "戊", "己", "庚", "辛", "壬", "癸"];
+var asairlA_dz = [
+  "子",
+  "丑",
+  "寅",
+  "卯",
+  "辰",
+  "巳",
+  "午",
+  "未",
+  "申",
+  "酉",
+  "戌",
+  "亥",
+];
+var asairlA_sx = [
+  "鼠",
+  "牛",
+  "虎",
+  "兔",
+  "龙",
+  "蛇",
+  "马",
+  "羊",
+  "猴",
+  "鸡",
+  "狗",
+  "猪",
+];
+var asairlA_jq = [
+  "小寒",
+  "大寒",
+  "立春",
+  "雨水",
+  "惊蛰",
+  "春分",
+  "清明",
+  "谷雨",
+  "立夏",
+  "小满",
+  "芒种",
+  "夏至",
+  "小暑",
+  "大暑",
+  "立秋",
+  "处暑",
+  "白露",
+  "秋分",
+  "寒露",
+  "霜降",
+  "立冬",
+  "小雪",
+  "大雪",
+  "冬至",
+];
+var asairlA_rn = [
+  0, 21208, 42467, 63836, 85337, 107014, 128867, 150921, 173149, 195551, 218072,
+  240693, 263343, 285989, 308563, 331033, 353350, 375494, 397447, 419210,
+  440795, 462224, 483532, 504758,
+];
+var asairlA_sz = [
+  "日",
+  "一",
+  "二",
+  "三",
+  "四",
+  "五",
+  "六",
+  "七",
+  "八",
+  "九",
+  "十",
+];
+var asairlA_ss = ["初", "十", "廿", "卅", "　"];
 
-  function log(level, msg) {
-    if (asairlbug == 0 || asairlbug == level)
-      if (window.console) {
-        window.console.log("[asairlbug]" + msg);
-      }
+function log(level, msg) {
+  if (asairlbug == 0 || asairlbug == level)
+    if (window.console) {
+      window.console.log("[asairlbug]" + msg);
+    }
+}
+
+function lYearDays(y) {
+  var i,
+    sum = 348;
+  for (i = 0x8000; i > 0x8; i >>= 1) sum += asairlA_nl[y - yearA] & i ? 1 : 0;
+  return sum + leapDays(y);
+}
+
+function leapDays(y) {
+  if (leapMonth(y)) return asairlA_nl[y - yearA] & 0x10000 ? 30 : 29;
+  else return 0;
+}
+
+function leapMonth(y) {
+  return asairlA_nl[y - yearA] & 0xf;
+}
+
+function monthDays(y, m) {
+  return asairlA_nl[y - yearA] & (0x10000 >> m) ? 30 : 29;
+}
+
+function Lunar(objDate) {
+  var m = ""; // msg for log
+  var i,
+    leap = 0,
+    temp = 0;
+  var baseDate = new Date(yearA, 0, 31);
+  // var offset = (objDate - baseDate) / 86400000;
+  var offset = Math.floor((objDate.getTime() + 2206425600000) / 86400000);
+  m +=
+    "objDate=" +
+    objDate.getTime() +
+    ", new Date(" +
+    yearA +
+    ",0,31)=" +
+    baseDate.getTime();
+  m += "offset=" + offset;
+
+  this.dayCyl = offset + 40;
+  this.monCyl = 14;
+
+  for (i = yearA; i < yearB && offset > 0; i++) {
+    temp = lYearDays(i);
+    offset -= temp;
+    this.monCyl += 12;
   }
 
-  function lYearDays(y) {
-    var i,
-      sum = 348;
-    for (i = 0x8000; i > 0x8; i >>= 1) sum += asairlA_nl[y - yearA] & i ? 1 : 0;
-    return sum + leapDays(y);
+  if (offset < 0) {
+    offset += temp;
+    i--;
+    this.monCyl -= 12;
   }
 
-  function leapDays(y) {
-    if (leapMonth(y)) return asairlA_nl[y - yearA] & 0x10000 ? 30 : 29;
-    else return 0;
-  }
+  this.year = i;
+  this.yearCyl = i - 1864;
 
-  function leapMonth(y) {
-    return asairlA_nl[y - yearA] & 0xf;
-  }
+  leap = leapMonth(i);
+  this.isLeap = false;
 
-  function monthDays(y, m) {
-    return asairlA_nl[y - yearA] & (0x10000 >> m) ? 30 : 29;
-  }
-
-  function Lunar(objDate) {
-    var m = ""; // msg for log
-    var i,
-      leap = 0,
-      temp = 0;
-    var baseDate = new Date(yearA, 0, 31);
-    // var offset = (objDate - baseDate) / 86400000;
-    var offset = Math.floor((objDate.getTime() + 2206425600000) / 86400000);
-    m +=
-      "objDate=" +
-      objDate.getTime() +
-      ", new Date(" +
-      yearA +
-      ",0,31)=" +
-      baseDate.getTime();
-    m += "offset=" + offset;
-
-    this.dayCyl = offset + 40;
-    this.monCyl = 14;
-
-    for (i = yearA; i < yearB && offset > 0; i++) {
-      temp = lYearDays(i);
-      offset -= temp;
-      this.monCyl += 12;
+  for (i = 1; i < 13 && offset > 0; i++) {
+    if (leap > 0 && i == leap + 1 && this.isLeap == false) {
+      --i;
+      this.isLeap = true;
+      temp = leapDays(this.year);
+    } else {
+      temp = monthDays(this.year, i);
     }
 
-    if (offset < 0) {
-      offset += temp;
-      i--;
-      this.monCyl -= 12;
-    }
+    if (this.isLeap == true && i == leap + 1) this.isLeap = false;
 
-    this.year = i;
-    this.yearCyl = i - 1864;
+    offset -= temp;
+    if (this.isLeap == false) this.monCyl++;
+  }
 
-    leap = leapMonth(i);
-    this.isLeap = false;
-
-    for (i = 1; i < 13 && offset > 0; i++) {
-      if (leap > 0 && i == leap + 1 && this.isLeap == false) {
-        --i;
-        this.isLeap = true;
-        temp = leapDays(this.year);
-      } else {
-        temp = monthDays(this.year, i);
-      }
-
-      if (this.isLeap == true && i == leap + 1) this.isLeap = false;
-
-      offset -= temp;
-      if (this.isLeap == false) this.monCyl++;
-    }
-
-    if (offset == 0 && leap > 0 && i == leap + 1)
-      if (this.isLeap) {
-        this.isLeap = false;
-      } else {
-        this.isLeap = true;
-        --i;
-        --this.monCyl;
-      }
-
-    if (offset < 0) {
-      offset += temp;
+  if (offset == 0 && leap > 0 && i == leap + 1)
+    if (this.isLeap) {
+      this.isLeap = false;
+    } else {
+      this.isLeap = true;
       --i;
       --this.monCyl;
     }
 
-    this.month = i;
-    this.day = offset + 1;
-
-    m +=
-      "\noffset=" +
-      offset +
-      ", year=" +
-      this.year +
-      ", yearCyl=" +
-      this.yearCyl +
-      ", month=" +
-      this.month +
-      ",\n monthCyl=" +
-      this.monthCyl +
-      ", day=" +
-      this.day +
-      ", dayCyl=" +
-      this.dayCyl;
-    log(2, m);
+  if (offset < 0) {
+    offset += temp;
+    --i;
+    --this.monCyl;
   }
 
-  function solarDays(y, m) {
-    if (m == 1) return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0 ? 29 : 28;
-    else return asairlA_ty[m];
-  }
+  this.month = i;
+  this.day = offset + 1;
 
-  function cyclical(num) {
-    return asairlA_tg[num % 10] + asairlA_dz[num % 12];
-  }
+  m +=
+    "\noffset=" +
+    offset +
+    ", year=" +
+    this.year +
+    ", yearCyl=" +
+    this.yearCyl +
+    ", month=" +
+    this.month +
+    ",\n monthCyl=" +
+    this.monthCyl +
+    ", day=" +
+    this.day +
+    ", dayCyl=" +
+    this.dayCyl;
+  log(2, m);
+}
 
-  function calElement(
-    sYear,
-    sMonth,
-    sDay,
-    week,
-    lYear,
-    lMonth,
-    lDay,
-    isLeap,
-    cYear,
-    cMonth,
-    cDay
-  ) {
-    this.isToday = false;
-    this.sYear = sYear;
-    this.sMonth = sMonth;
-    this.sDay = sDay;
-    this.week = week;
-    this.lYear = lYear;
-    this.lMonth = lMonth;
-    this.lDay = lDay;
-    this.isLeap = isLeap;
-    this.cYear = cYear;
-    this.cMonth = cMonth;
-    this.cDay = cDay;
-    this.color = "";
-    this.lunarFestival = "";
-    this.solarFestival = "";
-    this.asairlA_jqs = "";
-  }
+function solarDays(y, m) {
+  if (m == 1) return (y % 4 == 0 && y % 100 != 0) || y % 400 == 0 ? 29 : 28;
+  else return asairlA_ty[m];
+}
 
-  function sTerm(y, n) {
-    log(
-      1,
-      `y=${y} n=${n} asairlA_rn[n]=${
-        asairlA_rn[n]
-      } Date.UTC(${yearA},0,6,2,5)=${Date.UTC(
-        yearA,
-        0,
-        6,
-        2,
-        5
-      )} Date.UTC(${yearB},0,1,0,0)=${Date.UTC(yearB, 0, 1, 0, 0)}`
-    );
-    //   var offDate=new Date( ( 31556925974.7*(y-yearA) + asairlA_rn[n]*60000  ) + Date.UTC(yearA,0,6,2,5) );
-    var offDate = new Date(
-      31556925974.7 * (y - yearA) + asairlA_rn[n] * 60000 - 2208549300000
-    );
-    // Negative epoch (time_t) values are not officially supported by the
-    // POSIX standards.  On some systems, they are known not to work.
-    // -- perldoc Time::Local
+function cyclical(num) {
+  return asairlA_tg[num % 10] + asairlA_dz[num % 12];
+}
 
-    return offDate.getUTCDate();
-  }
+function calElement(
+  sYear,
+  sMonth,
+  sDay,
+  week,
+  lYear,
+  lMonth,
+  lDay,
+  isLeap,
+  cYear,
+  cMonth,
+  cDay
+) {
+  this.isToday = false;
+  this.sYear = sYear;
+  this.sMonth = sMonth;
+  this.sDay = sDay;
+  this.week = week;
+  this.lYear = lYear;
+  this.lMonth = lMonth;
+  this.lDay = lDay;
+  this.isLeap = isLeap;
+  this.cYear = cYear;
+  this.cMonth = cMonth;
+  this.cDay = cDay;
+  this.color = "";
+  this.lunarFestival = "";
+  this.solarFestival = "";
+  this.asairlA_jqs = "";
+}
 
-  function calendar(y, m) {
-    log(1, "i am in calendar() now");
-    var sDObj,
-      lDObj,
+function sTerm(y, n) {
+  log(
+    1,
+    `y=${y} n=${n} asairlA_rn[n]=${
+      asairlA_rn[n]
+    } Date.UTC(${yearA},0,6,2,5)=${Date.UTC(
+      yearA,
+      0,
+      6,
+      2,
+      5
+    )} Date.UTC(${yearB},0,1,0,0)=${Date.UTC(yearB, 0, 1, 0, 0)}`
+  );
+  //   var offDate=new Date( ( 31556925974.7*(y-yearA) + asairlA_rn[n]*60000  ) + Date.UTC(yearA,0,6,2,5) );
+  var offDate = new Date(
+    31556925974.7 * (y - yearA) + asairlA_rn[n] * 60000 - 2208549300000
+  );
+  // Negative epoch (time_t) values are not officially supported by the
+  // POSIX standards.  On some systems, they are known not to work.
+  // -- perldoc Time::Local
+
+  return offDate.getUTCDate();
+}
+
+function calendar(y, m) {
+  log(1, "i am in calendar() now");
+  var sDObj,
+    lDObj,
+    lY,
+    lM,
+    lD = 1,
+    lL,
+    lX = 0,
+    tmp1,
+    tmp2;
+  var lDPOS = new Array(3);
+  var n = 0;
+  var firstLM = 0;
+
+  sDObj = new Date(y, m, 1);
+
+  this.length = solarDays(y, m);
+  this.firstWeek = sDObj.getDay();
+
+  log(1, "this.length: " + this.length);
+  log(1, "begin loop for(var i=0;i<this.length;i++)");
+  for (var i = 0; i < this.length; i++) {
+    if (lD > lX) {
+      sDObj = new Date(y, m, i + 1);
+      lDObj = new Lunar(sDObj);
+      lY = lDObj.year;
+      lM = lDObj.month;
+      lD = Math.round(lDObj.day);
+      lL = lDObj.isLeap;
+      lX = lL ? leapDays(lY) : monthDays(lY, lM);
+
+      if (n == 0) firstLM = lM;
+      lDPOS[n++] = i - lD + 1;
+    }
+
+    //log(1,"lDObj.dayCyl: "+lDObj.dayCyl);
+    this[i] = new calElement(
+      y,
+      m + 1,
+      i + 1,
+      asairlA_sz[(i + this.firstWeek) % 7],
       lY,
       lM,
-      lD = 1,
+      lD++,
       lL,
-      lX = 0,
-      tmp1,
-      tmp2;
-    var lDPOS = new Array(3);
-    var n = 0;
-    var firstLM = 0;
-
-    sDObj = new Date(y, m, 1);
-
-    this.length = solarDays(y, m);
-    this.firstWeek = sDObj.getDay();
-
-    log(1, "this.length: " + this.length);
-    log(1, "begin loop for(var i=0;i<this.length;i++)");
-    for (var i = 0; i < this.length; i++) {
-      if (lD > lX) {
-        sDObj = new Date(y, m, i + 1);
-        lDObj = new Lunar(sDObj);
-        lY = lDObj.year;
-        lM = lDObj.month;
-        lD = Math.round(lDObj.day);
-        lL = lDObj.isLeap;
-        lX = lL ? leapDays(lY) : monthDays(lY, lM);
-
-        if (n == 0) firstLM = lM;
-        lDPOS[n++] = i - lD + 1;
-      }
-
-      //log(1,"lDObj.dayCyl: "+lDObj.dayCyl);
-      this[i] = new calElement(
-        y,
-        m + 1,
-        i + 1,
-        asairlA_sz[(i + this.firstWeek) % 7],
-        lY,
-        lM,
-        lD++,
-        lL,
-        cyclical(lDObj.yearCyl),
-        cyclical(lDObj.monCyl),
-        cyclical(lDObj.dayCyl++)
-      );
-
-      if ((i + this.firstWeek) % 7 == 0) this[i].color = "#67C23A";
-      if ((i + this.firstWeek) % 14 == 13) this[i].color = "#67C23A";
-    }
-    log(1, "end loop for(var i=0;i<this.length;i++)");
-
-    tmp1 = sTerm(y, m * 2) - 1;
-    tmp2 = sTerm(y, m * 2 + 1) - 1;
-    log(
-      1,
-      "m: " +
-        m +
-        " tmp1: " +
-        tmp1 +
-        " " +
-        asairlA_jq[m * 2] +
-        " tmp2: " +
-        tmp2 +
-        " " +
-        asairlA_jq[m * 2 + 1]
+      cyclical(lDObj.yearCyl),
+      cyclical(lDObj.monCyl),
+      cyclical(lDObj.dayCyl++)
     );
-    this[tmp1].asairlA_jqs = asairlA_jq[m * 2];
-    this[tmp2].asairlA_jqs = asairlA_jq[m * 2 + 1];
-    if (m == 3) this[tmp1].color = "#67C23A";
 
-    log(1, "begin loop for(i in asairl.ly)");
-    for (i in asairl.ly)
-      if (asairl.ly[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
-        if (Math.round(RegExp.$1) == m + 1) {
-          this[Math.round(RegExp.$2) - 1].solarFestival += RegExp.$4 + " ";
-          if (RegExp.$3 == "*")
-            this[Math.round(RegExp.$2) - 1].color = "#FF9900";
-        }
+    if ((i + this.firstWeek) % 7 == 0) this[i].color = "#67C23A";
+    if ((i + this.firstWeek) % 14 == 13) this[i].color = "#67C23A";
+  }
+  log(1, "end loop for(var i=0;i<this.length;i++)");
 
-    log(1, "begin loop for(i in asairl.lx)");
-    for (i in asairl.lx)
-      if (asairl.lx[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
-        if (Math.round(RegExp.$1) == m + 1) {
-          tmp1 = Math.round(RegExp.$2);
-          tmp2 = Math.round(RegExp.$3);
-          this[
-            (this.firstWeek > tmp2 ? 7 : 0) +
-              7 * (tmp1 - 1) +
-              tmp2 -
-              this.firstWeek
-          ].solarFestival += RegExp.$5 + " ";
-        }
+  tmp1 = sTerm(y, m * 2) - 1;
+  tmp2 = sTerm(y, m * 2 + 1) - 1;
+  log(
+    1,
+    "m: " +
+      m +
+      " tmp1: " +
+      tmp1 +
+      " " +
+      asairlA_jq[m * 2] +
+      " tmp2: " +
+      tmp2 +
+      " " +
+      asairlA_jq[m * 2 + 1]
+  );
+  this[tmp1].asairlA_jqs = asairlA_jq[m * 2];
+  this[tmp2].asairlA_jqs = asairlA_jq[m * 2 + 1];
+  if (m == 3) this[tmp1].color = "#67C23A";
 
-    log(1, "begin loop for(i in asairl.ln)");
-    for (i in asairl.ln)
-      if (asairl.ln[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
-        log(1, asairl.ln[i]);
-        tmp1 = Math.round(RegExp.$1) - firstLM;
-        if (tmp1 == -11) tmp1 = 1;
-        if (tmp1 >= 0 && tmp1 < n) {
-          tmp2 = Math.round(lDPOS[tmp1] + Math.round(RegExp.$2) - 1);
-          if (tmp2 >= 0 && tmp2 < this.length) {
-            log(
-              1,
-              "tmp2 >= 0 && tmp2(" + tmp2 + ")<this.length(" + this.length + ")"
-            );
-            log(1, RegExp.$4);
-            log(1, this[tmp2].lunarFestival);
-            this[tmp2].lunarFestival += RegExp.$4 + " ";
-            log(1, RegExp.$3);
-            if (RegExp.$3 == "*") this[tmp2].color = "#FF9900";
-          }
-        }
+  log(1, "begin loop for(i in asairl.ly)");
+  for (i in asairl.ly)
+    if (asairl.ly[i].match(/^(\d{2})(\d{2})([\s\*])(.+)$/))
+      if (Math.round(RegExp.$1) == m + 1) {
+        this[Math.round(RegExp.$2) - 1].solarFestival += RegExp.$4 + " ";
+        if (RegExp.$3 == "*") this[Math.round(RegExp.$2) - 1].color = "#FF9900";
       }
 
-    if (y == tY && m == tM) {
-      this[tD - 1].isToday = true;
+  log(1, "begin loop for(i in asairl.lx)");
+  for (i in asairl.lx)
+    if (asairl.lx[i].match(/^(\d{2})(\d)(\d)([\s\*])(.+)$/))
+      if (Math.round(RegExp.$1) == m + 1) {
+        tmp1 = Math.round(RegExp.$2);
+        tmp2 = Math.round(RegExp.$3);
+        this[
+          (this.firstWeek > tmp2 ? 7 : 0) +
+            7 * (tmp1 - 1) +
+            tmp2 -
+            this.firstWeek
+        ].solarFestival += RegExp.$5 + " ";
+      }
+
+  log(1, "begin loop for(i in asairl.ln)");
+  for (i in asairl.ln)
+    if (asairl.ln[i].match(/^(\d{2})(.{2})([\s\*])(.+)$/)) {
+      log(1, asairl.ln[i]);
+      tmp1 = Math.round(RegExp.$1) - firstLM;
+      if (tmp1 == -11) tmp1 = 1;
+      if (tmp1 >= 0 && tmp1 < n) {
+        tmp2 = Math.round(lDPOS[tmp1] + Math.round(RegExp.$2) - 1);
+        if (tmp2 >= 0 && tmp2 < this.length) {
+          log(
+            1,
+            "tmp2 >= 0 && tmp2(" + tmp2 + ")<this.length(" + this.length + ")"
+          );
+          log(1, RegExp.$4);
+          log(1, this[tmp2].lunarFestival);
+          this[tmp2].lunarFestival += RegExp.$4 + " ";
+          log(1, RegExp.$3);
+          if (RegExp.$3 == "*") this[tmp2].color = "#FF9900";
+        }
+      }
     }
+
+  if (y == tY && m == tM) {
+    this[tD - 1].isToday = true;
   }
+}
 
-  function cDay(d) {
-    var s;
-    switch (d) {
-      case 10:
-        s = "初十";
-        break;
-      case 20:
-        s = "二十";
-        break;
-      case 30:
-        s = "三十";
-        break;
-      default:
-        s = asairlA_ss[Math.floor(d / 10)];
-        s += asairlA_sz[d % 10];
-    }
-    return s;
+function cDay(d) {
+  var s;
+  switch (d) {
+    case 10:
+      s = "初十";
+      break;
+    case 20:
+      s = "二十";
+      break;
+    case 30:
+      s = "三十";
+      break;
+    default:
+      s = asairlA_ss[Math.floor(d / 10)];
+      s += asairlA_sz[d % 10];
   }
+  return s;
+}
 
-  function drawCld(SY, SM) {
-    log(1, "i am in drawCld() now");
+function drawCld(SY, SM) {
+  log(1, "i am in drawCld() now");
 
-    var i, sD, s, size;
-    log(1, "begin to create calendar cld");
-    cld = new calendar(SY, SM);
-    log(1, "calendar cld creation finished");
+  var i, sD, s, size;
+  log(1, "begin to create calendar cld");
+  cld = new calendar(SY, SM);
+  log(1, "calendar cld creation finished");
 
-    document.getElementById("gz").innerHTML = `　农历${cyclical(
-      SY - yearA + 36
-    )}年【${asairlA_sx[(SY - 4) % 12]}】`;
-    log(1, "innerHTML of gz is " + document.getElementById("gz").innerHTML);
+  document.getElementById("gz").innerHTML = `　农历${cyclical(
+    SY - yearA + 36
+  )}年【${asairlA_sx[(SY - 4) % 12]}】`;
+  log(1, "innerHTML of gz is " + document.getElementById("gz").innerHTML);
 
-    for (i = 0; i < 42; i++) {
-      sObj = document.getElementById("sd" + i);
-      lObj = document.getElementById("ld" + i);
-      xObj = document.getElementById("xd" + i);
+  for (i = 0; i < 42; i++) {
+    sObj = document.getElementById("sd" + i);
+    lObj = document.getElementById("ld" + i);
+    xObj = document.getElementById("xd" + i);
 
-      sObj.style.background = "";
-      lObj.style.background = "";
+    sObj.style.background = "";
+    lObj.style.background = "";
 
-      sD = i - cld.firstWeek;
+    sD = i - cld.firstWeek;
 
-      if (sD > -1 && sD < cld.length) {
-        sObj.innerHTML = sD + 1;
-        xObj.innerHTML = `<div class="asairlonk"><div class="asairlonc">
+    if (sD > -1 && sD < cld.length) {
+      sObj.innerHTML = sD + 1;
+      xObj.innerHTML = `<div class="asairlonk"><div class="asairlonc">
                          ${cld[sD].lYear} 年
                          ${cld[sD].sMonth} 月
                          ${cld[sD].sDay} 日<br />
@@ -634,14 +631,14 @@ function fnasairl(asairl) {
                         ${cld[sD].solarFestival}
                         ${cld[sD].lunarFestival}
                         </div></div>`;
-        if (cld[sD].isToday) {
-          //设置今天的背景色
-          sObj.className = "asairldj";
-        } else {
-          sObj.style.color = cld[sD].color;
-        }
-        if (cld[sD].lDay == 1)
-          lObj.innerHTML = `<b>
+      if (cld[sD].isToday) {
+        //设置今天的背景色
+        sObj.className = "asairldj";
+      } else {
+        sObj.style.color = cld[sD].color;
+      }
+      if (cld[sD].lDay == 1)
+        lObj.innerHTML = `<b>
                      ${(cld[sD].isLeap ? "闰" : "") + cld[sD].lMonth}月
                      ${
                        monthDays(cld[sD].lYear, cld[sD].lMonth) == 29
@@ -649,119 +646,119 @@ function fnasairl(asairl) {
                          : "大"
                      }
                      </b>`;
-        else {
-          lObj.innerHTML = cDay(cld[sD].lDay);
-        }
+      else {
+        lObj.innerHTML = cDay(cld[sD].lDay);
+      }
 
-        s = cld[sD].lunarFestival;
+      s = cld[sD].lunarFestival;
+      if (s.length > 0) {
+        //农历节日
+        s = s.fontcolor("#67C23A");
+      } else {
+        s = cld[sD].solarFestival;
         if (s.length > 0) {
-          //农历节日
-          s = s.fontcolor("#67C23A");
+          //阳历节日
+          size = s.charCodeAt(0) > 0 && s.charCodeAt(0) < 128 ? 9 : 5;
+          s = s.fontcolor("#F56C6C");
         } else {
-          s = cld[sD].solarFestival;
+          s = cld[sD].asairlA_jqs;
           if (s.length > 0) {
-            //阳历节日
-            size = s.charCodeAt(0) > 0 && s.charCodeAt(0) < 128 ? 9 : 5;
-            s = s.fontcolor("#F56C6C");
-          } else {
-            s = cld[sD].asairlA_jqs;
-            if (s.length > 0) {
-              s = s.fontcolor("#E6A23C");
-            }
+            s = s.fontcolor("#E6A23C");
           }
         }
-        if (s.length > 0) {
-          lObj.innerHTML = s;
-        }
-      } else {
-        sObj.innerHTML = " ";
-        lObj.innerHTML = " ";
       }
+      if (s.length > 0) {
+        lObj.innerHTML = s;
+      }
+    } else {
+      sObj.innerHTML = " ";
+      lObj.innerHTML = " ";
     }
   }
+}
 
-  function changeCld() {
-    var y, m;
-    y = document.getElementById("sy").selectedIndex + yearA;
-    m = document.getElementById("sm").selectedIndex;
-    drawCld(y, m);
-  }
+function changeCld() {
+  var y, m;
+  y = document.getElementById("sy").selectedIndex + yearA;
+  m = document.getElementById("sm").selectedIndex;
+  drawCld(y, m);
+}
 
-  function pushBtm(K) {
-    switch (K) {
-      case "YU":
+function pushBtm(K) {
+  switch (K) {
+    case "YU":
+      if (document.getElementById("sy").selectedIndex > 0)
+        document.getElementById("sy").selectedIndex--;
+      break;
+    case "YD":
+      if (document.getElementById("sy").selectedIndex < yearX)
+        document.getElementById("sy").selectedIndex++;
+      break;
+    case "MU":
+      if (document.getElementById("sm").selectedIndex > 0) {
+        document.getElementById("sm").selectedIndex--;
+      } else {
+        document.getElementById("sm").selectedIndex = 11;
         if (document.getElementById("sy").selectedIndex > 0)
           document.getElementById("sy").selectedIndex--;
-        break;
-      case "YD":
+      }
+      break;
+    case "MD":
+      if (document.getElementById("sm").selectedIndex < 11) {
+        document.getElementById("sm").selectedIndex++;
+      } else {
+        document.getElementById("sm").selectedIndex = 0;
         if (document.getElementById("sy").selectedIndex < yearX)
           document.getElementById("sy").selectedIndex++;
-        break;
-      case "MU":
-        if (document.getElementById("sm").selectedIndex > 0) {
-          document.getElementById("sm").selectedIndex--;
-        } else {
-          document.getElementById("sm").selectedIndex = 11;
-          if (document.getElementById("sy").selectedIndex > 0)
-            document.getElementById("sy").selectedIndex--;
-        }
-        break;
-      case "MD":
-        if (document.getElementById("sm").selectedIndex < 11) {
-          document.getElementById("sm").selectedIndex++;
-        } else {
-          document.getElementById("sm").selectedIndex = 0;
-          if (document.getElementById("sy").selectedIndex < yearX)
-            document.getElementById("sy").selectedIndex++;
-        }
-        break;
-      default:
-        document.getElementById("sy").selectedIndex = tY - yearA;
-        document.getElementById("sm").selectedIndex = tM;
-    }
-    changeCld();
+      }
+      break;
+    default:
+      document.getElementById("sy").selectedIndex = tY - yearA;
+      document.getElementById("sm").selectedIndex = tM;
   }
-  //界面初始化
-  function initial() {
-    //select
-    document.getElementById("sy").selectedIndex = tY - yearA;
-    document.getElementById("sm").selectedIndex = tM;
-    log(1, "initial call drawCld() now");
-    drawCld(tY, tM);
-  }
+  changeCld();
+}
+//界面初始化
+function initial() {
+  //select
+  document.getElementById("sy").selectedIndex = tY - yearA;
+  document.getElementById("sm").selectedIndex = tM;
+  log(1, "initial call drawCld() now");
+  drawCld(tY, tM);
+}
 
-  function eestmshow() {
-    var d = new Date();
-    var weeks = [
-      "",
-      "星期一",
-      "星期二",
-      "星期三",
-      "星期四",
-      "星期五",
-      "<B>星期六</B>",
-      "<B>星期天</B>",
-    ];
-    var week = weeks[d.getDay()] || "";
-    var year = d.getYear() + 1900;
-    var month = add_zero(d.getMonth() + 1);
-    var days = add_zero(d.getDate());
-    var hours = add_zero(d.getHours());
-    var minutes = add_zero(d.getMinutes());
-    var seconds = add_zero(d.getSeconds());
-    var ndate = `${year}年${month}月${days}日 ${week} ${hours}:${minutes}:${seconds}`;
-    AsaiTime.innerHTML = ndate;
+function eestmshow() {
+  var d = new Date();
+  var weeks = [
+    "",
+    "星期一",
+    "星期二",
+    "星期三",
+    "星期四",
+    "星期五",
+    "<B>星期六</B>",
+    "<B>星期天</B>",
+  ];
+  var week = weeks[d.getDay()] || "";
+  var year = d.getYear() + 1900;
+  var month = add_zero(d.getMonth() + 1);
+  var days = add_zero(d.getDate());
+  var hours = add_zero(d.getHours());
+  var minutes = add_zero(d.getMinutes());
+  var seconds = add_zero(d.getSeconds());
+  var ndate = `${year}年${month}月${days}日 ${week} ${hours}:${minutes}:${seconds}`;
+  AsaiTime.innerHTML = ndate;
+}
+function add_zero(temp) {
+  if (temp < 10) {
+    return "0" + temp;
+  } else {
+    return temp;
   }
-  function add_zero(temp) {
-    if (temp < 10) {
-      return "0" + temp;
-    } else {
-      return temp;
-    }
-  }
+}
 
-  function showasairl() {
-    var tmphtml = `
+function showasairl() {
+  var tmphtml = `
 
     <style>
       /**阿赛万年历的CSS FF8800|FFFFFE---0**/
@@ -931,59 +928,58 @@ function fnasairl(asairl) {
          <div id="AsaiTime" onClick="pushBtm(\'\')"></div>
          <div id="asaitiao">公历<span class="asaitiaox" onClick="pushBtm(\'YU\')">&lt;</span><select name="select" id="sy" onChange="changeCld()">
         `;
-    for (var yri = yearA; yri < yearB + 1; yri++) {
-      tmphtml += `<option>${yri}</option>`;
-    }
-    tmphtml +=
-      '</select><span class="asaitiaox" onClick="pushBtm(\'YD\')">&gt;</span>年<span class="asaitiaox" onClick="pushBtm(\'MU\')">&lt;</span><select name="select2" id="sm" onChange="changeCld()">';
-    for (var mhi = 1; mhi < 13; mhi++) {
-      tmphtml += `<option>${mhi}</option>`;
-    }
-    tmphtml +=
-      '</select><span class="asaitiaox" onClick="pushBtm(\'MD\')">&gt;</span>月<span id="gz"></span></div>';
+  for (var yri = yearA; yri < yearB + 1; yri++) {
+    tmphtml += `<option>${yri}</option>`;
+  }
+  tmphtml +=
+    '</select><span class="asaitiaox" onClick="pushBtm(\'YD\')">&gt;</span>年<span class="asaitiaox" onClick="pushBtm(\'MU\')">&lt;</span><select name="select2" id="sm" onChange="changeCld()">';
+  for (var mhi = 1; mhi < 13; mhi++) {
+    tmphtml += `<option>${mhi}</option>`;
+  }
+  tmphtml +=
+    '</select><span class="asaitiaox" onClick="pushBtm(\'MD\')">&gt;</span>月<span id="gz"></span></div>';
 
-    tmphtml += `<table width="100%" border="0" cellspacing="0" cellpadding="0" id="asairltxq">
+  tmphtml += `<table width="100%" border="0" cellspacing="0" cellpadding="0" id="asairltxq">
               <tr class="asairltxqt">
                 <td>日</td><td>一</td><td>二</td><td>三</td><td>四</td><td>五</td><td>六</td>
               </tr>`;
-    for (var asaixqj = 0; asaixqj < 42; asaixqj++) {
-      if (asaixqj == 0) {
-        tmphtml += `
+  for (var asaixqj = 0; asaixqj < 42; asaixqj++) {
+    if (asaixqj == 0) {
+      tmphtml += `
                        <tr class="asairltxqc"><td class="asairltxqr">
                          <div class="asairldt" id="sd${asaixqj}"></div>
                          <div class="asairldc" id="ld${asaixqj}"></div>
                          <div class="asairlds" id="xd${asaixqj}"></div>
                        </td>`;
-      } else if (asaixqj == 41) {
-        tmphtml += `
+    } else if (asaixqj == 41) {
+      tmphtml += `
                        <td class="asairltxql">
                          <div class="asairldt" id="sd${asaixqj}"></div>
                          <div class="asairldc" id="ld${asaixqj}"></div>
                          <div class="asairlds" id="xd${asaixqj}"></div>
                        </td></tr>`;
-      } else if (asaixqj % 7 == 0) {
-        tmphtml += `
+    } else if (asaixqj % 7 == 0) {
+      tmphtml += `
                        </tr><tr class="asairltxqc"><td class="asairltxqz">
                          <div class="asairldt" id="sd${asaixqj}"></div>
                          <div class="asairldc" id="ld${asaixqj}"></div>
                          <div class="asairlds" id="xd${asaixqj}"></div>
                        </td>`;
-      } else {
-        tmphtml += `
+    } else {
+      tmphtml += `
                        <td class="asairltxqz">
                          <div class="asairldt" id="sd${asaixqj}"></div>
                          <div class="asairldc" id="ld${asaixqj}"></div>
                          <div class="asairlds" id="xd${asaixqj}"></div>
                        </td>`;
-      }
     }
-    tmphtml += "</table>";
-    return tmphtml;
   }
-
-  // dom 渲染
-  document.write(showasairl());
-  setInterval(() => eestmshow(), 1000);
-  initial();
-  // 阿赛万年历的JS ---1
+  tmphtml += "</table>";
+  return tmphtml;
 }
+
+// dom 渲染
+document.write(showasairl());
+setInterval(() => eestmshow(), 1000);
+initial();
+// 阿赛万年历的JS ---1
